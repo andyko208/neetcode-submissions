@@ -1,0 +1,14 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # compare the counter of each strings to return true if match else false
+        # Time: O(s+t) from forming the counter hashmap
+        # Space: O(s+t) from storing the counter hashmap
+        # return Counter(s) == Counter(t)
+
+        if len(s) != len(t):
+            return False
+        sSet, tSet = [0] * 26, [0] * 26
+        for i in range(len(s)):
+            sSet[ord('a') - ord(s[i])] += 1
+            tSet[ord('a') - ord(t[i])] += 1
+        return sSet == tSet
